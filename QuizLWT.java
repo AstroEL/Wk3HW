@@ -271,11 +271,12 @@ public class QuizLWT {
 	
 	/* 42. Write a for loop that prints every even number from 0 to 100.
 	 *  	
-	 *  	int limit = 100;
+	 *  		int limit = 100;
 	 *		System.out.println("Printing even numbers 1-"+limit);
 	 *		for(int i=1; i <=limit; i++) {
 	 *			if(i%2==0) 
 	 *				System.out.println(i);
+	 *		}
 	 *	
 	 */
 	
@@ -298,7 +299,7 @@ public class QuizLWT {
 	 *		public static void multiplyName(String name, int times) {
 	 *			for(int counter=0; counter<times; counter++)
 	 *				System.out.print(name);
-	 *	}
+	 *		}
 	 *  
 	 */
 		
