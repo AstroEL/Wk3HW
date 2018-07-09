@@ -3,6 +3,9 @@ import java.util.Scanner;
 
 public class CodingHWwk3 {
 	static boolean exit;
+	static Scanner sc = new Scanner(System.in);	
+	static String[] thoughtList = new String[10];
+	
 	/*
 	 * Coding - Refactor your menu driven application from last weeks homework to 
 	 * use methods instead of just a procedural programming style. Create as many 
@@ -17,15 +20,26 @@ public class CodingHWwk3 {
 	 * Create proper validation to ensure an exception isn't thrown while reading 
 	 * or writing from the array.
 	 */
+	
 	public static void main(String[] args) {
 		
+		thoughtList[0] = "Jesus' ministry and attributes";
+		thoughtList[1] = "The Scriptures, symbols and the 2nd coming";
+		thoughtList[2] = "Astrophysics and the Electric Universe";
+		thoughtList[3] = "Scorpions and venom in general";
+		thoughtList[4] = "Psychedelics and a connection to the spirit realm";
+		thoughtList[5] = "Java!";
+		thoughtList[6] = "Woodworking and welding";
+		thoughtList[7] = "Gardening and chemistry";
+		thoughtList[8] = "Music, poetry and rhythm";
+		thoughtList[9] = "";
+
 		CodingHWwk3 menu = new CodingHWwk3();
 		menu.runMenu();	
 		}	
 	
 	public void runMenu() {		
-		printHeader();
-				
+		printHeader();				
 			while (!exit) {
 				printMenu();
 				int choice = getInput();
@@ -33,14 +47,14 @@ public class CodingHWwk3 {
 			}
 	}	
 	
-	private void printHeader() {
+	public void printHeader() {
 				System.out.println(".........................................................");
 				System.out.println("             	You Have Entered"						  );
 				System.out.println("             	 Leiland's Mind"						  );
 				System.out.println(".........................................................");
 	}
 	
-	private void printMenu() {
+	public void printMenu() {
 				System.out.println("\n...........Please Make a Selection.......................");
 				System.out.println("1) What the, How did I get here?!");
 				System.out.println("2) Sweet, what is on your mind Leiland?");
@@ -50,7 +64,7 @@ public class CodingHWwk3 {
 				System.out.println(".........................................................");
 	}
 
-	private void performAction(int choice) {
+	public void performAction(int choice) {
 			switch(choice) {
 				case 0:
 					exit = true;
@@ -83,7 +97,7 @@ public class CodingHWwk3 {
 			}
 	}
 	
-	private void pickExplain() {
+	public void pickExplain() {
 			int num  = (int) (Math.random()* 6);
 			switch (num) {
 				case 0:
@@ -115,9 +129,8 @@ public class CodingHWwk3 {
 			
 		}
 	
-	private void pickThought() {
+	public void pickThought() {
 			System.out.println("It depends on your age... how old are you?");	
-				Scanner sc = new Scanner(System.in);			
 				int choice = sc.nextInt();
 				if (choice  >18 && choice < 105) {
 					System.out.println("\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
@@ -133,11 +146,10 @@ public class CodingHWwk3 {
 					System.out.println("\nHmm. Interesting choice, I think I'll keep my thoughts to myself.");	
 					System.out.println("\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");	
 				}	
-				//sc.close();
 				
 		}
 	
-	private void pickMystery() {
+	public void pickMystery() {
 			int num  = (int)(Math.random() * 3);
 			switch (num) {
 				case 0:
@@ -169,7 +181,7 @@ public class CodingHWwk3 {
 			
 		}	
 	
-	private static void pickExploreHeader() {
+	public static void pickExploreHeader() {
 		System.out.println("\n*********************************************************");
 		System.out.println("\nLook! We found where Leiland keeps his current interests!");
 		System.out.println("\n*********************************************************");
@@ -187,19 +199,18 @@ public class CodingHWwk3 {
 
 	}
 	
-	private static void pickExplore() {
+	public static void pickExplore() {
 			pickExploreHeader();
 			int choice = getInput2();
 			performExplore(choice);
 			}	
 	
-	private int getInput() {
-		Scanner kb = new Scanner(System.in);
+	public int getInput() {
 		int choice = -1;
 		while(choice < 0 || choice > 5) {
 			try {
 				System.out.print("\nEnter your selection:");
-				choice = Integer.parseInt(kb.nextLine());
+				choice = Integer.parseInt(sc.nextLine());
 				
 			}
 			catch (NumberFormatException e) {
@@ -210,13 +221,12 @@ public class CodingHWwk3 {
 		return choice;		
 	}	
 
-	private static int getInput2() {
-		Scanner pe = new Scanner(System.in);
+	public static int getInput2() {
 		int choice = -1;
 		while(choice < 0 || choice > 6) {
 			try {
 				System.out.print("\nEnter your selection:");
-				choice = Integer.parseInt(pe.nextLine());	
+				choice = Integer.parseInt(sc.nextLine());	
 			}
 			catch (NumberFormatException e) {
 				System.out.println("\nThe instructions were pretty simple... please try again.");	
@@ -225,26 +235,13 @@ public class CodingHWwk3 {
 		return choice;		
 	}
 	
-	private static String getInput3() {
-		Scanner ad = new Scanner(System.in);
-		String incept = ad.nextLine();
+	public static String getInput3() {
+		String incept = sc.nextLine();
 		return incept;
 		
 	}
 	
-	private static void performExplore(int choice) {
-		String[] thoughtList = new String[10];
-		thoughtList[0] = "Jesus' ministry and attributes";
-		thoughtList[1] = "The Scriptures, symbols and the 2nd coming";
-		thoughtList[2] = "Astrophysics and the Electric Universe";
-		thoughtList[3] = "Scorpions and venom in general";
-		thoughtList[4] = "Psychedelics and a connection to the spirit realm";
-		thoughtList[5] = "Java!";
-		thoughtList[6] = "Woodworking and welding";
-		thoughtList[7] = "Gardening and chemistry";
-		thoughtList[8] = "Music, poetry and rhythm";
-		thoughtList[9] = "";
-
+	public static void performExplore(int choice) {
 		switch(choice) {
 			case 1:
 			//Display all elements
